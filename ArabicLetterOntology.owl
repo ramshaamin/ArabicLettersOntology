@@ -1,0 +1,3033 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.tajweedontology.org/ontologies/rules#"
+     xml:base="http://www.tajweedontology.org/ontologies/rules"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:rules="http://www.tajweedontology.org/ontologies/rules#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:partof="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#">
+    <owl:Ontology rdf:about="http://www.tajweedontology.org/ontologies/rules">
+        <terms:creator>Ramsha Amin</terms:creator>
+        <terms:description>An ontology about Arabic Letters and their characteristics in the recitation of The Holy Quran. The ontology is annotated in both Arabic and English.</terms:description>
+        <terms:license>https://creativecommons.org/licenses/by/2.0/</terms:license>
+        <rdfs:label xml:lang="en">Tajweed Rules</rdfs:label>
+        <rdfs:label xml:lang="ar">قواعد التجويد</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#sameAs -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#sameAs"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart">
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf">
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#belongToGroup -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#belongToGroup">
+        <owl:inverseOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#belongToLetter"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#belongToLetter -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#belongToLetter">
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#composeWord -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#composeWord">
+        <owl:inverseOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#containLetter"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#Word"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#containLetter -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#containLetter">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#Word"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint">
+        <owl:inverseOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#isArticulationPointof"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#hasCharacteristic -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#hasCharacteristic">
+        <owl:inverseOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#isCharacteristicOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#BasicCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#hasCharacteristicType -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#hasCharacteristicType">
+        <owl:inverseOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#isCharacteristicTypeOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#BasicCharacteristic"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#hasOpposite -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#hasOpposite">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#hasPartDirectly -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#hasPartDirectly">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart"/>
+        <owl:inverseOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#isPartOfDirectly"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#involveArticulationArea -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#involveArticulationArea">
+        <owl:inverseOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#involveLetter"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#involveArticulationPoint -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#involveArticulationPoint">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#involveLetter -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#involveLetter">
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#involvePartially -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#involvePartially">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#isArticulationPointof -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#isArticulationPointof">
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#isCharacteristicOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#isCharacteristicOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#BasicCharacteristic"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#isCharacteristicTypeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#isCharacteristicTypeOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#BasicCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#isPartOfDirectly -->
+
+    <owl:ObjectProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#isPartOfDirectly">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Definitions of the concepts or instances that are applied in practical learning of Tajweed</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#hasExplaination -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#hasExplaination">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#hasLinguisticDefinition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#hasLinguisticDefinition">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Definition that is relating to language or lingustics</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#hasSheikhAlJazareeReference -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tajweedontology.org/ontologies/rules#hasSheikhAlJazareeReference">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>This is the matn (poem) of Muhammad bin Muhammad Bin Muhammad Bin &apos;Alee Bin Yuusuf Ibn Al Jazaree, who died in 833 Hijri, &quot;Al Muqaddimatu al Jazariyyah&quot; who has 109 verses, speaking of the rules of tajweed (art of Quranic recitation) and makhaarij Al huruuf (knowing the places from which the Arabic letters are pronounced). The poem is orignally in Arabic.
+
+In our ontology we have annotated it in English as well.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ApproximateArticulationPoint -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#ApproximateArticulationPoint">
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment xml:lang="en">It is that which does not rely on a specific place from the area of the throat, or the tongue, or the two lips. This approximate articulation point is applied to the lengthened letters that comes from the empty spaces in the mouth and throat.</rdfs:comment>
+        <rdfs:comment xml:lang="ur">وہ مخرج ہے جس کا انحصار ،حلق ،زبان یا ہونٹوں کے کسی خاص حصہ پر نہیں ہوتا۔اس کا اطلاق منہ اور حلق کے خالی حصہ  اور خیشوم سے ہوتا ہے۔</rdfs:comment>
+        <rdfs:label xml:lang="ar">المخرج المقدر</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation">
+        <owl:disjointWith rdf:resource="http://www.tajweedontology.org/ontologies/rules#Characteristic"/>
+        <owl:disjointWith rdf:resource="http://www.tajweedontology.org/ontologies/rules#Item"/>
+        <owl:disjointWith rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="en">AreaOfArticulation</rdfs:label>
+        <rdfs:label xml:lang="ar">اصول_مخارج</rdfs:label>
+        <rdfs:label xml:lang="ur">مخارج کى حصہ</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPoint -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#isArticulationPointof"/>
+                <owl:someValuesFrom rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.tajweedontology.org/ontologies/rules#Characteristic"/>
+        <owl:disjointWith rdf:resource="http://www.tajweedontology.org/ontologies/rules#Item"/>
+        <owl:disjointWith rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="en">ArticulationPoint</rdfs:label>
+        <rdfs:label xml:lang="ar">مخارج الحروف</rdfs:label>
+        <rdfs:label xml:lang="ur">مخارج کى جگہ</rdfs:label>
+        <owl:sameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://dbpedia.org/page/Place_of_articulation</owl:sameAs>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#BasicCharacteristic -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#BasicCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Characteristic"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasCharacteristicType"/>
+                <owl:someValuesFrom rdf:resource="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.tajweedontology.org/ontologies/rules#ConditionalCharacteristic"/>
+        <rdfs:comment xml:lang="en">There are eight characteristics in pair;each characteristic of the pair is opposite to the other characteristic in the pair. There are also seven singular characteristics that have no opposites. Each letter has atleast four characteristics, one of each of the pair of opposite.</rdfs:comment>
+        <rdfs:label xml:lang="ar">الصفات الاصلية</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Characteristic -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#Characteristic">
+        <owl:disjointWith rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:isDefinedBy xml:lang="en">What serves the purpose of describing the meaning, This can be in thw way of physical descriptions such as white and black, or can be abstract descriptions such as education</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="ur">اصطلاحی معنیٰ: وہ حالت یا کیفیت جو مخرج سے ادا ہوتے وقت حرف میں پائی جاتی ہے۔ جو اس حرف کو دوسرے حروف سے ممتاز /الگ کرتی ہے۔</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="ur">لفظی معنیٰ:  کیفیت یا حالت</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="ar">هي الكيفية العارضة للحرف عند حصوله فى المخرج والي تمي</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="ar">هي ما قام بالشي ء من المعاني</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Characteristic</rdfs:label>
+        <rdfs:label xml:lang="ur">صفات</rdfs:label>
+        <rdfs:label xml:lang="ar">صفات الحرف</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite">
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#BasicCharacteristic"/>
+        <owl:disjointWith rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <rdfs:label xml:lang="ar">صفات ذوات الاضدا</rdfs:label>
+        <rdfs:label xml:lang="ur">صفات متضادہ</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite">
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#BasicCharacteristic"/>
+        <rdfs:label xml:lang="ur">صفات غیرمتضادہ</rdfs:label>
+        <rdfs:label xml:lang="ar">صفات لا اضداد لها</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ConditionalCharacteristic -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#ConditionalCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Characteristic"/>
+        <rdfs:label xml:lang="ar">الصفات العرضية</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#GroupOfLetters -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTwoLips"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                                <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointف"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticuationPointofو"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeAlthalqeeyah -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeAlthalqeeyah">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                                <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointر"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointل"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointن"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeLahawiyyayn -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeLahawiyyayn">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                                <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointق"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointك"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongueandBottomEdges"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeMadeeya -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeMadeeya">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointE1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTopoftheTongue"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongue"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofMiddlePartofTongue"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Item -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#Item">
+        <rdfs:comment>This class is the collection of letters, words and Maad letters. Item itself is not a term in Tajweed literature rather it contain terms that are used in Tajweed domain. 
+.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Letter -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#Letter">
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Item"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:someValuesFrom rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                        <owl:someValuesFrom rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasCharacteristic"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.tajweedontology.org/ontologies/rules#Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Letter</rdfs:label>
+        <rdfs:label xml:lang="ar">الحروف</rdfs:label>
+        <rdfs:label xml:lang="ur">حرف</rdfs:label>
+        <owl:sameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://dbpedia.org/page/Arabic_alphabet</owl:sameAs>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#MaadLetter -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#MaadLetter">
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Item"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasArticulationPoint"/>
+                <owl:someValuesFrom rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="ur">ہر حر ف مدّ منہ یا جبڑے کی ایک مخصوص حرکت کے ساتھ ادا ہوتا ہے جیسے: الف کے لئے منہ کھولنا
+واوٴ کےلئےدونوں ہونٹوں کو گول کرنا،  یاء کے لئے جبڑے کو پیچھے کرنا</rdfs:comment>
+        <rdfs:label xml:lang="ar">حروف_المد</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#MiddleCharacteristic -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#MiddleCharacteristic">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Characteristic"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasCharacteristicType"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheMiddleCharacteristics"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#SpecificArticulationPoint -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#SpecificArticulationPoint">
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment xml:lang="en">It is that which lies on a specific place of the areas of the throat, tongue or two lips.</rdfs:comment>
+        <rdfs:comment xml:lang="ur">وہ مخرج ہےجس کا انحصار حلق ، زبان یا ہونٹوں کے کسی خاص حصہ پر ہوتا ہے۔</rdfs:comment>
+        <rdfs:label xml:lang="ar">المخرج المحقق</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#StrongCharacteristic -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#StrongCharacteristic">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Characteristic"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasCharacteristicType"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic">
+        <rdfs:label xml:lang="ar">تقسم الصفات</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#WeakCharacteristic -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#WeakCharacteristic">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#Characteristic"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasCharacteristicType"/>
+                        <owl:hasValue rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWeakCharacteristics"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Word -->
+
+    <owl:Class rdf:about="http://www.tajweedontology.org/ontologies/rules#Word">
+        <rdfs:subClassOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Item"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#containLetter"/>
+                <owl:someValuesFrom rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#containLetter"/>
+                <owl:someValuesFrom rdf:resource="http://www.tajweedontology.org/ontologies/rules#MaadLetter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticuationPointofو -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticuationPointofو">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#CircleofTheTwoLips"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticuationPointofو"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>The unlengthened wow is articulated by forming a circle of the two lips without thetwo lips meeting completely.</rdfs:comment>
+        <rdfs:label xml:lang="ur">دونوں ہونٹوں کے ملنے سے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointE1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointE1">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationArea rdf:resource="http://www.tajweedontology.org/ontologies/rules#EmptySpacesinMouthandThroat"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointE1"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the articulation point for the Maad letters.</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointT1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT1">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#DeepestPartofThroat"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT1"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the articulation point for the letters ء ه. It is articulated from the deepest part of the throat.</rdfs:comment>
+        <rdfs:label xml:lang="ur">حلق کا سب سے گہرے حصے سے ادا ہوتے ہے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointT2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT2">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#MiddlePartofThroat"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT2"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the articulation point for the letters ح, ع. It is articulated from the middle part of the throat.</rdfs:comment>
+        <rdfs:label xml:lang="ur">حلق کا درمیانی حصے سے ادا ہوتے ہے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointT3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT3">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ClosestPartofThroat"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT3"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the articulation point for the letters خ,غ. It is articulated from the closest part of the throat.</rdfs:comment>
+        <rdfs:label xml:lang="ur">حلق کا قریب ترین حصے سے ادا ہوتے ہے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongue -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongue">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#BetweenTwoTopIncisors"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#SlightlyAboveLowerIncisors"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#TipofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letters ز, س, ص. They are articulated between Tip of the tongue and between the plates of two top incisors and slightly above lower incisors.</rdfs:comment>
+        <rdfs:label xml:lang="ur">طرف اللسان جب ثنایا سفلیٰ کےاندرونی کناروں سے لگے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongueandBottomEdges -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongueandBottomEdges">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#BottomEdgesofTwoUpperIncisors"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#TipofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongueandBottomEdges"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letters ث, ذ, ظ. These three letters are articulated from between the Tip of the tongue, from the top side of the tip and bottom edges of the two top incisors.</rdfs:comment>
+        <rdfs:label xml:lang="ur">طرف اللسان جب ثنایا علیا کے کناروں سے لگے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointofMiddlePartofTongue -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofMiddlePartofTongue">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#MiddlePartofTongue"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#UpperPalate"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofMiddlePartofTongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the articulation point for the letters ي ش. It is articulated from the middle part of the tongue and opposite top palate
+.</rdfs:comment>
+        <rdfs:label xml:lang="ur">وسط اللسان بالمقابل اوپرکاتالو سے لگے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTopoftheTongue -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTopoftheTongue">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#GumLineofUpperTwoIncisors"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#TopofTipofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTopoftheTongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for letter ط, ت,د . They are articulated from Gum line of front two top incisors and Top of the tongue.</rdfs:comment>
+        <rdfs:label xml:lang="ur">طرف اللسان جب  ثنایا علیا کی جڑسےلگے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTwoLips -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTwoLips">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ClosingTwoLips"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTwoLips"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letters. letter involves articulation area nose for its complete pronounciation</rdfs:comment>
+        <rdfs:label xml:lang="ur">دونوں ہونٹوں کو ملانے سے ادا ہوتا ہے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointر -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointر">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#OppositetotheGumofTwoTopFrontIncisors"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#TopofTipofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointر"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letter ر. This letter is articulated from the tip of the tongue with top of the tip, close to the articulation point of ن and what lies opposite to it of the gums of the two top front incisors.</rdfs:comment>
+        <rdfs:label xml:lang="ur">طرف اللسان  مع ظھراللسان جب ثنایا علیا کے مسوڑھوں سے لگے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointض -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointض">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#EdgeofTongue"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#UpperMolarsLeftorRightorboth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointض"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letter ض. They are articulated from one of the sides or edges of the tongue and what lies opposite to it of the upper molars left or right. It can also be articulated from both sides at the same time.</rdfs:comment>
+        <rdfs:label xml:lang="ur">جب حافۃ اللسان  بالمقابل اضراس علیا (ضواحک،طواحن،نواجذ) سے لگے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointف -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointف">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#InsideLowerLip"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#TipofTwoFrontIncisors"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointف"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letter ف. They are articulated between the inside of the lower lip and the tips of the two front incisors.</rdfs:comment>
+        <rdfs:label xml:lang="ur">جب ثنایا علیا کے کنارے نچلے ہونٹ کے اندرونی حصہ سے لگیں</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointق -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointق">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#DeepestPartofTongue"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#SoftPalate"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointق"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letter ق. They are articulated from the deepest part of the tongue and what lies opposite to it of the roof of the mouth (the soft palate)</rdfs:comment>
+        <rdfs:label xml:lang="ur">اقصی اللسان بالمقابل نرم تالو</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointك -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointك">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#DeepestPartofTongue"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#HardPalate"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointك"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letter ك. They are articulated from the deepest part of the tongue and what lies opposite to it of the roof of the mouth (the hard palate). The ك is under the ق a little, meaning closer to the mouth and farther from the throat than the ق</rdfs:comment>
+        <rdfs:label xml:lang="ur">اقصی اللسان بالمقابل نرم اور سخت تالو</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointل -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointل">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#EdgeofTongue"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#OppositetotheGumofFirstTwoUpperPreMolars"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoUpperCanines"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoUpperFrontIncisors"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoUpperLateralIncisors"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointل"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letter ل. They are articulated from the nearest part of the sides of the tongue and the end of its tip and what lies opposite to it of the gums of the first two upper premolars, the two upper canines, the two upper lateral incisors and the two upper front incisors.</rdfs:comment>
+        <rdfs:label xml:lang="ur">طرفاللسان مع ادنیٰ حافہ جب  اسنان علیا(ثنایا،رباعی،انیاب )اورضواحک کے مسوڑھوں سے لگے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ArticulationPointن -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ArticulationPointن">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#OppositetotheGumofTwoTopFrontIncisors"/>
+        <involveArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#TopofTipofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointن"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:comment>This is the composite articulation point for the letter ن. They are articulated from the tip of the tongue and what lies opposite to it of the gums of the two top front incisors, slightly beneath the articulation point for the ل.</rdfs:comment>
+        <rdfs:label xml:lang="ur">طرف اللسان جب ثنایا علیا کے مسوڑھوں سے لگے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#BetweenTwoTopIncisors -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#BetweenTwoTopIncisors">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#BetweenTwoTopIncisors"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Between Two Top Incisors</rdfs:label>
+        <rdfs:label xml:lang="ur">سامنے کے دو دانتوں  کے درمیان</rdfs:label>
+        <rdfs:label xml:lang="ar">من صغحتى الثنايا العليا</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Incisor</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#BottomEdgesofTwoUpperIncisors -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#BottomEdgesofTwoUpperIncisors">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#BottomEdgesofTwoUpperIncisors"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Bottom Edges of Two Top Incisors</rdfs:label>
+        <rdfs:label xml:lang="ar">أطراف الثنايا العليا أى رؤوسها</rdfs:label>
+        <rdfs:label xml:lang="ur">سامنے کے دو دانتوں کا نیچے والا کنارہ</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Incisor</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#CircleofTheTwoLips -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#CircleofTheTwoLips">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#CircleofTheTwoLips"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="ur">دونوں ہونٹوں کے گولائی  سے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ClosestPartofThroat -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ClosestPartofThroat">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Throat"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It means closest to the mouth. From here two letters emerge.</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ClosestPartofThroat"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Closest Part of Throat</rdfs:label>
+        <rdfs:label xml:lang="ar">ادنى الحلق</rdfs:label>
+        <rdfs:label xml:lang="ur">حلق کا قریب ترین حصہ</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Throat</owl:sameAs>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ClosestPartofThroat"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It means closest to the mouth. From here two letters emerge.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اس کا مطلب منہ کے قریب ہے۔ یہاں سے دو حروف نکلتے ہیں۔</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ClosingTwoLips -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ClosingTwoLips">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoLips"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ClosingTwoLips"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Closing Two Lips</rdfs:label>
+        <rdfs:label xml:lang="ar">بين الشفتين معا بانطباقهما</rdfs:label>
+        <rdfs:label xml:lang="ur">دونوں ہونٹوں کے ملنے سے</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Lip</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#DeepestPartofThroat -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#DeepestPartofThroat">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Throat"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It is farthest from the mouth and closest to the chest. From here two letters are articulated.</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#DeepestPartofThroat"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Deepest Part of Throat</rdfs:label>
+        <rdfs:label xml:lang="ar">اقصى الحلق</rdfs:label>
+        <rdfs:label xml:lang="ur">حلق کا سب سے گہرا حصہ</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Throat</owl:sameAs>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#DeepestPartofThroat"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It is farthest from the mouth and closest to the chest. From here two letters are articulated.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">یہ منہ سے سب سے دور اور سینے کے قریب ہے۔ یہاں سے دو حروف نکلتے ہیں۔</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#DeepestPartofTongue -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#DeepestPartofTongue">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Tongue"/>
+        <hasSheikhAlJazareeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#string">أدناه غينٌ خاؤها والقافُ  أقصى اللسانِ فوق ثم الكافُ أسفل</hasSheikhAlJazareeReference>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#DeepestPartofTongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Deepest Part of Tongue</rdfs:label>
+        <rdfs:label xml:lang="ar">اقصى اللسان</rdfs:label>
+        <rdfs:label xml:lang="ur">زبان کی جڑ  یا آخری حصہ</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Tongue</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#EdgeofTongue -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#EdgeofTongue">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Tongue"/>
+        <hasSheikhAlJazareeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#string">والضاد من حافته إذ وَلِيَا  لاضراسَ من أيسرَ أو يمناها واللام أدناها لمنتهاها</hasSheikhAlJazareeReference>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#EdgeofTongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Edge of Tongue</rdfs:label>
+        <rdfs:label xml:lang="ar">حافۃ اللسان</rdfs:label>
+        <rdfs:label xml:lang="ur">زبان کے دائیں بائیں کنارے</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Tongue</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#EmptySpacesinMouthandThroat -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#EmptySpacesinMouthandThroat">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It has one articulation point for the three lengthened letters.</hasExplaination>
+        <hasSheikhAlJazareeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#string">مخارج الحروف سبعةَ عشر 
+على الذي يختاره من اختبر
+
+ فألف الجوف وأختاها وهِيْ 
+حروفُ مد للهواء تنتهِي</hasSheikhAlJazareeReference>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#EmptySpacesinMouthandThroat"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <rdfs:label xml:lang="en">Empty Spaces in Mouth and Throat</rdfs:label>
+        <rdfs:label xml:lang="ar">الجوف</rdfs:label>
+        <rdfs:label xml:lang="ur">منہ اورحلق کے اندر کا خالی حصہ</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#EmptySpacesinMouthandThroat"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It has one articulation point for the three lengthened letters.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اس مخرج سے تين حروف ادا ہوتے ہیں</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#GumLineofUpperTwoIncisors -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#GumLineofUpperTwoIncisors">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#GumLineofUpperTwoIncisors"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Gum Line of Front Two Teeth</rdfs:label>
+        <rdfs:label xml:lang="ar">أصول الثنايا العليا</rdfs:label>
+        <rdfs:label xml:lang="ur">ثنایا علیا کی جڑسےلگے</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Maxillary_central_incisor</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HardPalate -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#HardPalate">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Palate"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HardPalate"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Hard Palate</rdfs:label>
+        <rdfs:label xml:lang="ar">المنطقة القاسيه</rdfs:label>
+        <rdfs:label xml:lang="ur">سخت تالو</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Hard_palate</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In this group letter meem is articulated by closing the two lips together. The letter ba&apos;is articulated by closig the two lips together, but a stronger closing than the meem.</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <rdfs:label xml:lang="en">Haroof Ash shafawiya</rdfs:label>
+        <rdfs:label xml:lang="ar">الحروف الشفويه</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In this group letter meem is articulated by closing the two lips together. The letter ba&apos;is articulated by closig the two lips together, but a stronger closing than the meem.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اس گروپ میں &quot;م&quot; کو دونوں ہونٹوں کو ایک ساتھ بند کر کے بیان کیا جاتا ہے۔ حرف &quot;ب&quot; كو دونوں ہونٹوں کے ساتھ بند کر کے بیان کیا جاتا ہے ، لیکن میم سے زیادہ مضبوط بند كرتے ہيں ۔</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeLahawiyyayn -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeLahawiyyayn">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so because their articulations point is close to the deepest part of tongue</hasExplaination>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so because their articulations point is somewhat close to the gums</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <rdfs:label xml:lang="en">Haroof e Lathawiyya</rdfs:label>
+        <rdfs:label xml:lang="ar">الحروف اللثويه</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so because their articulations point is somewhat close to the gums</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اس گروپ کے حروف کے مخارج مسوڑھوں سے کچھ زیادہ قریب ہیں</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeMadeeya -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeMadeeya">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so because their articulations point is emitted from empty spaces of mouth and throat. This group is also known as Haroof e Jofia or Haroof e Haweya</hasExplaination>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so due to their articulation position close to the two elevated area above the gum</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <rdfs:label xml:lang="en">Haroof e Natiyya</rdfs:label>
+        <rdfs:label xml:lang="ar">الحروف النطعيه</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so due to their articulation position close to the two elevated area above the gum</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اس گروپ کے حروف کا مخرج مسو کے اوپر والے حصہ کے قریب ہے</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so due to their emerging from the tip of the tongue.</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <rdfs:label xml:lang="en">Haroof e Saafir</rdfs:label>
+        <rdfs:label xml:lang="ar">الحروف الصفير- الاسلية</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so due to their emerging from the tip of the tongue.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اس گروپ کے حروف کا مخرج زبان کی نوک سے ہوتا ہے۔</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so because they are articulated from the center of the mouth, or the middle of the mouth</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <rdfs:label xml:lang="en">Haroof e Shajariya</rdfs:label>
+        <rdfs:label xml:lang="ar">الحروف الشجرية</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so because they are articulated from the center of the mouth, or the middle of the mouth</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اس گروپ کے حروف کا مخرج منہ کے بیچ یا منہ کے وسط سے منسلک ہیں</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#HaroofeThalqeeyah -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeThalqeeyah">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This group is named so because their articulations point is emitted from tip of tongue</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeThalqeeyah"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#GroupOfLetters"/>
+        <rdfs:comment xml:lang="ar">الحروف الزلقية</rdfs:comment>
+        <rdfs:label xml:lang="en">Haroof e Althalqeeyah</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#InsideLowerLip -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#InsideLowerLip">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoLips"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#InsideLowerLip"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Inside Lower Lip</rdfs:label>
+        <rdfs:label xml:lang="ar">باطن الشفة السفلى</rdfs:label>
+        <rdfs:label xml:lang="ur">نیچے والے ہونٹ کے اندر</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Lip</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#MiddlePartofThroat -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#MiddlePartofThroat">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Throat"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">From this part of  the throat two other letters emerge</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#MiddlePartofThroat"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Middle Part of Throat</rdfs:label>
+        <rdfs:label xml:lang="ur">حلق کا درمیانی حصہ</rdfs:label>
+        <rdfs:label xml:lang="ar">وسط الحلق</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Throat</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#MiddlePartofTongue -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#MiddlePartofTongue">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Tongue"/>
+        <hasSheikhAlJazareeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#string">والوسط فجيمُ الشين يا</hasSheikhAlJazareeReference>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#MiddlePartofTongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Middle Part of Tongue</rdfs:label>
+        <rdfs:label xml:lang="ar">وسط اللسان</rdfs:label>
+        <rdfs:label xml:lang="ur">وسط اللسان</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Tongue</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Mouth -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#Mouth">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It is further divided into twolips, tongue, roof of the mouth (upper palates). 22 different letters are pronounced from the different parts of the mouth.</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Mouth"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <rdfs:label xml:lang="en">Mouth</rdfs:label>
+        <rdfs:label xml:lang="ar">الفم</rdfs:label>
+        <rdfs:label xml:lang="ur">منہ</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Human_mouth</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Nose -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#Nose">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">From the hole of nose towards the inside of the mouth, here there is one articulation point, that of the ghunnah</hasExplaination>
+        <hasSheikhAlJazareeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#string">وغنَّة مخرجها الخيشوم</hasSheikhAlJazareeReference>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Nose"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <rdfs:label xml:lang="en">Nose</rdfs:label>
+        <rdfs:label xml:lang="ar">الخيشوم</rdfs:label>
+        <rdfs:label xml:lang="ur">ناک کا اندرونی حصہ</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Human_nose</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#OppositetotheGumofFirstTwoUpperPreMolars -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#OppositetotheGumofFirstTwoUpperPreMolars">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#OppositetotheGumofFirstTwoUpperPreMolars"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Opposite to the Gums of First Two Upper PreMolars</rdfs:label>
+        <rdfs:label xml:lang="ur">اوپر والی دو ڈاڑھو کے مسوڑھوں کے مخالف</rdfs:label>
+        <rdfs:label xml:lang="ar">ما يحاذيه من لثة الضاحكين العلويتين</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Molar_(tooth)</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#OppositetotheGumofTwoTopFrontIncisors -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#OppositetotheGumofTwoTopFrontIncisors">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#OppositetotheGumofTwoTopFrontIncisors"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Opposite to the Gumsof Two Top Front Incisors</rdfs:label>
+        <rdfs:label xml:lang="ur">سامنے کے دو دانتوں کے مسوڑوں کے مخالف</rdfs:label>
+        <rdfs:label xml:lang="ar">ما يحاذيه من لثة الثنيتين العلويتين</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Incisor</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Palate -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#Palate">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <partof:isPartOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Mouth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Palate"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Palate</rdfs:label>
+        <rdfs:label xml:lang="ar">الحنک</rdfs:label>
+        <rdfs:label xml:lang="ur">اوپر کے تالو</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Palate</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#SlightlyAboveLowerIncisors -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#SlightlyAboveLowerIncisors">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#SlightlyAboveLowerIncisors"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Slightly Above Lower Incisors</rdfs:label>
+        <rdfs:label xml:lang="ar">فويق السفلى</rdfs:label>
+        <rdfs:label>نیچے والے دانتوں سے تھوڑا سا اوپر</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Incisor</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#SoftPalate -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#SoftPalate">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Palate"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#SoftPalate"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Soft Palate</rdfs:label>
+        <rdfs:label xml:lang="ar">المنطقة الرخوة</rdfs:label>
+        <rdfs:label xml:lang="ur">نرم تالو</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Soft_palate</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Softness -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#Softness">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWeakCharacteristics"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Emitting the letter from its articulation point with ease without effort from the tongue.</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Easiness</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Softness"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <rdfs:label xml:lang="en">Softness</rdfs:label>
+        <rdfs:label xml:lang="ar">اللين</rdfs:label>
+        <rdfs:label xml:lang="ur">نرم ہونا</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Softness"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Emitting the letter from its articulation point with ease without effort from the tongue.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">نرمی اور آسانی سے ادا ہونا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Teeth -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#Teeth">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <partof:isPartOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Mouth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Teeth</rdfs:label>
+        <rdfs:label xml:lang="ar">الاسنان</rdfs:label>
+        <rdfs:label xml:lang="ur">دانت</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Human_tooth</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheAdhesioned -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheAdhesioned">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <hasOpposite rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheOpened"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ص"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ض"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ط"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ظ"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The compression of the sound of the &quot;الاطباق&quot; letter between the tongue and roof of the mouth.</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Adhering</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheAdhesioned"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:label xml:lang="en">Adhesioned</rdfs:label>
+        <rdfs:label xml:lang="ur">اطباق</rdfs:label>
+        <rdfs:label xml:lang="ar">الاطباق</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheAdhesioned"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The compression of the sound of the &quot;الاطباق&quot; letter between the tongue and roof of the mouth.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">(زبان کا تالوکوڈھانپنا (2 گنا تفخیم</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheApparent -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheApparent">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <hasOpposite rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWhisper"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ء"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ا"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ب"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ج"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#د"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ذ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ر"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ز"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ض"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ط"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ظ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ع"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#غ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ق"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ل"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#م"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ن"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#و"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ي"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Imprisonment of the flowing of breath when pronouncing a letter due to its strength which originated from relying on the letter at its articulation point</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apparent</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheApparent"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:label xml:lang="en">Apparent</rdfs:label>
+        <rdfs:label xml:lang="ar">الجهر</rdfs:label>
+        <rdfs:label xml:lang="ur">جہر</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheApparent"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Imprisonment of the flowing of breath when pronouncing a letter due to its strength which originated from relying on the letter at its articulation point</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">آواز کا بند ہونا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheDrifting -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheDrifting">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ر"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ل"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drifting of the sound of the letter due to the incomplete running caused  by the tongue from its path.</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drifting</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheDrifting"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <rdfs:label xml:lang="en">Drifting</rdfs:label>
+        <rdfs:label xml:lang="ar">الأنحراف</rdfs:label>
+        <rdfs:label xml:lang="ur">لَوٹنا</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheDrifting"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drifting of the sound of the letter due to the incomplete running caused  by the tongue from its path.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">زبان کے کنارے کا ایک  دوسرے کے مخرج کی طرف لوٹنا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheElevated -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheElevated">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <hasOpposite rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheLowered"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#خ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ص"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ض"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ط"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ظ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#غ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ق"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Directing pressure of the letter to the roof of the mouth due to an elevation of the deepest part of the tongue when pronouncing an &quot;elevated&quot; letter [letter from this group]</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elevation</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheElevated"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:label xml:lang="en">Elevated</rdfs:label>
+        <rdfs:label xml:lang="ur">استعلاء</rdfs:label>
+        <rdfs:label xml:lang="ar">الاستعلاء</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheElevated"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Directing pressure of the letter to the roof of the mouth due to an elevation of the deepest part of the tongue when pronouncing an &quot;elevated&quot; letter [letter from this group]</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">(اقصی اللسان کا بلند ہونا (تفخیم</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheInBetween -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheInBetween">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheMiddleCharacteristics"/>
+        <involvePartially rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheSoftness"/>
+        <involvePartially rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrength"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ر"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ع"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ل"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#م"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ن"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The letter is in between the two characteristics; between strength and softness so that the sound is partially imprisoned and partially running when pronouncing the letter</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moderation</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheInBetween"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:label xml:lang="en">InBetween</rdfs:label>
+        <rdfs:label xml:lang="ar">التوسط</rdfs:label>
+        <rdfs:label xml:lang="ur">توسط</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheInBetween"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The letter is in between the two characteristics; between strength and softness so that the sound is partially imprisoned and partially running when pronouncing the letter</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">درمیانی حالت</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheLengthening -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheLengthening">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ض"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Its is the pushing of the tongue forward after it collides at its articulation point , and this is due to the influence the compression of sound on it (the tongue), untill the tip of the tongue lightly touches the gum line of the two front incisors.</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lengthening</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheLengthening"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <rdfs:label xml:lang="en">Lengthening</rdfs:label>
+        <rdfs:label xml:lang="ar">الأستطالة</rdfs:label>
+        <rdfs:label xml:lang="ur">لمبا،دراز کرنا</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheLengthening"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Its is the pushing of the tongue forward after it collides at its articulation point , and this is due to the influence the compression of sound on it (the tongue), untill the tip of the tongue lightly touches the gum line of the two front incisors.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">مخرج میں آواز کا دراز ہونا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheLowered -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheLowered">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWeakCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ء"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ا"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ب"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ت"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ث"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ج"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ح"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#د"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ذ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ر"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ز"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#س"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ش"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ع"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#غ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ف"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ك"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ل"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#م"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ن"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ه"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#و"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ي"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The absence of pressuring the letter to the roof of the mouth due to the lack of raising the deepest part of the tongue when pronouncing a &quot;lowered&quot; letter [letter from this group].</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dropping or Lowering</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheLowered"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:label xml:lang="en">Lowered</rdfs:label>
+        <rdfs:label xml:lang="ur">استفال</rdfs:label>
+        <rdfs:label xml:lang="ar">الاستفال</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheLowered"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The absence of pressuring the letter to the roof of the mouth due to the lack of raising the deepest part of the tongue when pronouncing a &quot;lowered&quot; letter [letter from this group].</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اقصی اللسان کا نیچے رہنا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheMiddleCharacteristics -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheMiddleCharacteristics">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">التوسط</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheMiddleCharacteristics"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic"/>
+        <rdfs:label xml:lang="en">Middle Characteristics</rdfs:label>
+        <rdfs:label xml:lang="ar">الصفات المتوسطة</rdfs:label>
+        <rdfs:label xml:lang="ur">متواسط خصوصیات</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheNasalization -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheNasalization">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#م"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ن"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This is a required or intrinsic characteristic of the &quot;م&quot; and &quot;ن&quot; and cannot be separated from these two letters.</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A nasal sound that is emitted from the nose.</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheNasalization"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <rdfs:label xml:lang="en">Nasalization</rdfs:label>
+        <rdfs:label xml:lang="ar">الغنة</rdfs:label>
+        <rdfs:label xml:lang="ur">گنگناہٹ</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheNasalization"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasLinguisticDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A nasal sound that is emitted from the nose.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">نیزل کی آواز جو ناک سے خارج ہوتی ہے۔</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheOpened -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheOpened">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWeakCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ء"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ا"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ب"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ت"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ث"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ج"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ح"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#خ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#د"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ذ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ر"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ز"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#س"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ش"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ع"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#غ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ف"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ق"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ك"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ل"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#م"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ن"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ه"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#و"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ي"/>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Separation</hasLinguisticDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The absence of compression of the sound of the letter of &quot;الانفتاح&quot; between the tongue and the roof of the mouth.</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheOpened"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:label xml:lang="en">Opened</rdfs:label>
+        <rdfs:label xml:lang="ar">الانفتاح</rdfs:label>
+        <rdfs:label xml:lang="ur">انفتاح</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheOpened"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasLinguisticDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The absence of compression of the sound of the letter of &quot;الانفتاح&quot; between the tongue and the roof of the mouth.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">زبان کا کھلا رہنا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheRepetition -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheRepetition">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ر"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The light trilling of the tongue when pronouncing the &quot;ر&quot; due to its tight articulation point. The reciter should be careful not to exaggerate the repition leading to the occurrence of more than one of the letter &quot;ر&quot;</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Repetition of something once or more.</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheRepetition"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <rdfs:label xml:lang="en">Repetition</rdfs:label>
+        <rdfs:label xml:lang="ar">التكرار</rdfs:label>
+        <rdfs:label xml:lang="ur">بار بار ہونا</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheRepetition"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The light trilling of the tongue when pronouncing the &quot;ر&quot; due to its tight articulation point. The reciter should be careful not to exaggerate the repition leading to the occurrence of more than one of the letter &quot;ر&quot;</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">آواز میں کپکپی پیدا ہونا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheSoftness -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheSoftness">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWeakCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ا"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ث"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ح"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#خ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ذ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ز"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#س"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ش"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ص"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ض"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ظ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#غ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ف"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ه"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ي"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Running on of the sound with the letter due to weakness in reliance on the articulation point</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Softness</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheSoftness"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:label xml:lang="en">Softness</rdfs:label>
+        <rdfs:label xml:lang="ar">الرخاوة</rdfs:label>
+        <rdfs:label xml:lang="ur">رخوت</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheSoftness"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Running on of the sound with the letter due to weakness in reliance on the articulation point</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">آواز کا جاری ہونا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheSpreadingAround -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheSpreadingAround">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ش"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spreading the sound of the letter &quot;ش&quot; starting from its articulation point untill its collides with the inner plates of the top teeth.</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spreading around</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheSpreadingAround"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <rdfs:label xml:lang="en">Spreading Around</rdfs:label>
+        <rdfs:label xml:lang="ar">التفشى</rdfs:label>
+        <rdfs:label xml:lang="ur">پھیلنا</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheSpreadingAround"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spreading the sound of the letter &quot;ش&quot; starting from its articulation point untill its collides with the inner plates of the top teeth.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">مخرج میں آواز کا پھیلنا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheStrength -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheStrength">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <hasOpposite rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheSoftness"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ء"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ب"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ت"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ج"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#د"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ط"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ق"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ك"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Imprisonment of the running of the sound when pronouncing a letter due to complete reliance on the articulation point</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Strength</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrength"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:label xml:lang="en">Strength</rdfs:label>
+        <rdfs:label xml:lang="ar">االشدة</rdfs:label>
+        <rdfs:label xml:lang="ur">شدت</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrength"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Imprisonment of the running of the sound when pronouncing a letter due to complete reliance on the articulation point</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">صوتی نقطہ پر مکمل انحصار کی وجہ سے خط کا اعلان کرتے وقت آواز کو چلانے پر قید</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">الاطباق, الجهر, استعلاء, االشدة, الأنحراف, الأستطالة, التكرار, التفشى, الصفير</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic"/>
+        <rdfs:label xml:lang="en">Strong Characteristics</rdfs:label>
+        <rdfs:label xml:lang="ar">الصفات القوية</rdfs:label>
+        <rdfs:label xml:lang="ur">قوي خصوصیات</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheWeakCharacteristics -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheWeakCharacteristics">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">استفال, الانفتاح, الرخاوة, الهمس, اللين</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWeakCharacteristics"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#TypesOfCharacteristic"/>
+        <rdfs:label xml:lang="ar">الصفات الضعيفة</rdfs:label>
+        <rdfs:label xml:lang="ur">ضعيف خصوصیات</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheWhisper -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheWhisper">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWeakCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ت"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ث"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ح"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#خ"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#س"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ش"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ص"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ف"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ك"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ه"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Running on of breath when pronouncing the letter due to its weakness in its origin, which originated from weakness of relying on the letter at its articulation point of origin.</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concealment</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWhisper"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithOpposite"/>
+        <rdfs:label xml:lang="en">Whisper</rdfs:label>
+        <rdfs:label xml:lang="ar">الهمس</rdfs:label>
+        <rdfs:label xml:lang="ur">ہمس</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWhisper"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Running on of breath when pronouncing the letter due to its weakness in its origin, which originated from weakness of relying on the letter at its articulation point of origin.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">سیٹی کی طرح تیز آواز نکلنا</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TheWhistle -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TheWhistle">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <hasCharacteristicType rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheStrongCharacteristics"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ز"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#س"/>
+        <isCharacteristicOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#ص"/>
+        <hasAppliedTajweedDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sharpness in the sound of the letter produced from it transversing through a tight passage.</hasAppliedTajweedDefinition>
+        <hasLinguisticDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sharpness of sound</hasLinguisticDefinition>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWhistle"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#CharacteristicsWithoutOpposite"/>
+        <rdfs:label xml:lang="en">Whistle</rdfs:label>
+        <rdfs:label xml:lang="ar">الصفير</rdfs:label>
+        <rdfs:label xml:lang="ur">سیٹی</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TheWhistle"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasAppliedTajweedDefinition"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sharpness in the sound of the letter produced from it transversing through a tight passage.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اس سے نکانے ہونے والے خط کی آواز میں تیزی ایک سخت گزرنے سے گزر رہی ہے۔</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Throat -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#Throat">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It has three articulation points for six different letters which are pronounced from the deepest, middle and closest part of the throat.</hasExplaination>
+        <hasSheikhAlJazareeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ثم لأقصى الحلق همزٌ هاءُ 
+ثم لوسْطه فعينٌ حاءُ  أدناه غينٌ خاؤها</hasSheikhAlJazareeReference>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Throat"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#AreaOfArticulation"/>
+        <rdfs:label xml:lang="en">Throat</rdfs:label>
+        <rdfs:label xml:lang="ar">الحلق</rdfs:label>
+        <rdfs:label xml:lang="ur">حلق</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Throat</owl:sameAs>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Throat"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It has three articulation points for six different letters which are pronounced from the deepest, middle and closest part of the throat.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اس کے تین مخارج اور چھ حروف ہیں۔ جو حلق کے سب سے گہرے ، درمیانی اور قریب ترین حصے سے نکلتے ہیں</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TipofTongue -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TipofTongue">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Tongue"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">There are five articulation points for eleven letters</hasExplaination>
+        <hasSheikhAlJazareeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#string">والنون من طرفه تحت اجعلوا  والرا يدانيه لظهر أدخلوا والطاء والدال وتا منه ومِن عليا الثنايا والصفير مستكِن  منه ومن فوق الثنايا السفلى والظاء والذال وثا للعليا  من طرفيهما</hasSheikhAlJazareeReference>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TipofTongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Tip of Tongue</rdfs:label>
+        <rdfs:label xml:lang="ur">زبان کا سامنے کا کنارہ</rdfs:label>
+        <rdfs:label xml:lang="ar">طرف اللسان</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Tongue</owl:sameAs>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TipofTongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">There are five articulation points for eleven letters</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اسکے پانچ مخارج ہیں اور گیارہ حروف ہیں۔</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TipofTwoFrontIncisors -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TipofTwoFrontIncisors">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TipofTwoFrontIncisors"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Tip of Two Front Incisors</rdfs:label>
+        <rdfs:label xml:lang="ar">أطراف الثنايا العليا</rdfs:label>
+        <rdfs:label xml:lang="ur">سامنے کے دو دانتوں کی نوک</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Maxillary_central_incisor</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#Tongue -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#Tongue">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <partof:isPartOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Mouth"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It has ten articulation points for eighteen letters.</hasExplaination>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Tongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Tongue</rdfs:label>
+        <rdfs:label xml:lang="ar">اللسان</rdfs:label>
+        <rdfs:label xml:lang="ur">زبان</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Tongue</owl:sameAs>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#Tongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It has ten articulation points for eighteen letters.</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اسکے دس مخارج ہیں اور اٹھارہ حروف ہیں</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TopofTipofTongue -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TopofTipofTongue">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Tongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TopofTipofTongue"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Top of Tip of Tongue</rdfs:label>
+        <rdfs:label xml:lang="ur">زبان کا اوپر والا حصہ</rdfs:label>
+        <rdfs:label xml:lang="ar">طرف اللسان</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Tongue</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TwoLips -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TwoLips">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <partof:isPartOf rdf:resource="http://www.tajweedontology.org/ontologies/rules#Mouth"/>
+        <hasExplaination rdf:datatype="http://www.w3.org/2001/XMLSchema#string">They have two articulation points for four letters</hasExplaination>
+        <hasSheikhAlJazareeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ومن بطن الشفه  فالفا مع اطراف الثنايا المشرفه  للشفتين الواو باء ميم</hasSheikhAlJazareeReference>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoLips"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Two Lips</rdfs:label>
+        <rdfs:label xml:lang="ar">الشفتین</rdfs:label>
+        <rdfs:label xml:lang="ur">دونوں ہونٹ</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Lip</owl:sameAs>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoLips"/>
+        <owl:annotatedProperty rdf:resource="http://www.tajweedontology.org/ontologies/rules#hasExplaination"/>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">They have two articulation points for four letters</owl:annotatedTarget>
+        <rdfs:label xml:lang="ur">اسکے دو مخارج ہیں اور چار حروف ہیں۔</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TwoUpperCanines -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TwoUpperCanines">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoUpperCanines"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Two Upper Canines</rdfs:label>
+        <rdfs:label xml:lang="ar">النابين العلويتين</rdfs:label>
+        <rdfs:label xml:lang="ur">اوپر والی دو ڈاڑھ</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Maxillary_canine</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TwoUpperFrontIncisors -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TwoUpperFrontIncisors">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoUpperFrontIncisors"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Two Upper Front Incisors</rdfs:label>
+        <rdfs:label xml:lang="ar">الثنيتين العلويتين</rdfs:label>
+        <rdfs:label xml:lang="ur">سامنے کے اوپر والے دو دانت</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Maxillary_central_incisor</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#TwoUpperLateralIncisors -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#TwoUpperLateralIncisors">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#TwoUpperLateralIncisors"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Two Upper Lateral Incisors</rdfs:label>
+        <rdfs:label xml:lang="ar">الرباعيتين العلويتين</rdfs:label>
+        <rdfs:label xml:lang="ur">سامنے والے دو پچھلے دانت</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Mandibular_lateral_incisor</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#UpperMolarsLeftorRightorboth -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#UpperMolarsLeftorRightorboth">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Teeth"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#UpperMolarsLeftorRightorboth"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Upper Molars Left or Right or both</rdfs:label>
+        <rdfs:label xml:lang="ar">الاضراس العليا يمينا أو شمالا</rdfs:label>
+        <rdfs:label xml:lang="ur">اوپر والی آگے یا پچھے کی ڈاڑھ</rdfs:label>
+        <owl:sameAs>http://dbpedia.org/page/Molar_(tooth)</owl:sameAs>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#UpperPalate -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#UpperPalate">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <isPartOfDirectly rdf:resource="http://www.tajweedontology.org/ontologies/rules#Palate"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#UpperPalate"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPoint"/>
+        <rdfs:label xml:lang="en">Upper Palate</rdfs:label>
+        <rdfs:label xml:lang="ar">الحنك العلوي</rdfs:label>
+        <rdfs:label xml:lang="ur">اوپرکاتالو</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ء -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ء">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT1"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ء"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ء</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ا -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ا">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointE1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ا_PrecededbyFatha -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ا_PrecededbyFatha">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#MaadLetter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeMadeeya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointE1"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ا_PrecededbyFatha"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#MaadLetter"/>
+        <rdfs:label xml:lang="ar">الف الساكنة المفتوح ما قبلها</rdfs:label>
+        <rdfs:label xml:lang="ur">الف ساکنہ، جس سے پہلے فتحہ ہو</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ب -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ب">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTwoLips"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ب"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ب</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ت -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ت">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTopoftheTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ت"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ت</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ث -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ث">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongueandBottomEdges"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ث"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ث</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ج -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ج">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofMiddlePartofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ج"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ج</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ح -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ح">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT2"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ح"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ح</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#خ -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#خ">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT3"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#خ"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">خ</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#د -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#د">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTopoftheTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#د"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">د</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ذ -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ذ">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongueandBottomEdges"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ذ"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ذ</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ر -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ر">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeThalqeeyah"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointر"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ر"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ر</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ز -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ز">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ز"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ز</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#س -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#س">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#س"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">س</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ش -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ش">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofMiddlePartofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ش"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ش</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ص -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ص">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ص"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ص</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ض -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ض">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointض"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ض"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ض</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ط -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ط">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTopoftheTongue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ط"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ط</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ظ -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ظ">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointTipofTongueandBottomEdges"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ظ"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ظ</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ع -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ع">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT2"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ع"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ع</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#غ -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#غ">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT3"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#غ"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">غ</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ف -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ف">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointف"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ف"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ف</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ق -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ق">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeLahawiyyayn"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointق"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ق"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ق</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ك -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ك">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeLahawiyyayn"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointك"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ك"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ك</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ل -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ل">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeThalqeeyah"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointل"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ل"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ل</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#م -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#م">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofTwoLips"/>
+        <involveArticulationArea rdf:resource="http://www.tajweedontology.org/ontologies/rules#Nose"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#م"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">م</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ن -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ن">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeThalqeeyah"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointن"/>
+        <involveArticulationArea rdf:resource="http://www.tajweedontology.org/ontologies/rules#Nose"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ن"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ن</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ه -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ه">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointT1"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ه"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">ه</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#و -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#و">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticuationPointofو"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#و"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <rdfs:label xml:lang="ar">و</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#وْ_PrecededbyDammah -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#وْ_PrecededbyDammah">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#MaadLetter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeMadeeya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointE1"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#وْ_PrecededbyDammah"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#MaadLetter"/>
+        <rdfs:label xml:lang="ar">الواو الساكنة المضموم ما قبلها</rdfs:label>
+        <rdfs:label xml:lang="ur">واوٴساکنہ، جس سے پہلے ضمہ ہو</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ىْ_PrecededbyKasrah -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ىْ_PrecededbyKasrah">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#MaadLetter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeMadeeya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointE1"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.tajweedontology.org/ontologies/rules#ىْ_PrecededbyKasrah"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <owl:annotatedTarget rdf:resource="http://www.tajweedontology.org/ontologies/rules#MaadLetter"/>
+        <rdfs:label xml:lang="ar">الياء الساكنة المكسور ما قبلها</rdfs:label>
+        <rdfs:label xml:lang="ur">یاساکنہ، جس سے پہلے کسرہ  ہو</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.tajweedontology.org/ontologies/rules#ي -->
+
+    <owl:NamedIndividual rdf:about="http://www.tajweedontology.org/ontologies/rules#ي">
+        <rdf:type rdf:resource="http://www.tajweedontology.org/ontologies/rules#Letter"/>
+        <belongToGroup rdf:resource="http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya"/>
+        <hasArticulationPoint rdf:resource="http://www.tajweedontology.org/ontologies/rules#ArticulationPointofMiddlePartofTongue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofAshshafawiya"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeLathawiyya"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeNatiyya"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeSaafir"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#HaroofeShajariya"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ء"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ا"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ب"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ت"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ث"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ج"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ح"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#خ"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#د"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ذ"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ر"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ز"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#س"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ش"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ص"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ض"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ط"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ظ"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ع"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#غ"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ف"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ق"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ك"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ل"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#م"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ن"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ه"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#و"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ي"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ا_PrecededbyFatha"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#وْ_PrecededbyDammah"/>
+            <rdf:Description rdf:about="http://www.tajweedontology.org/ontologies/rules#ىْ_PrecededbyKasrah"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
