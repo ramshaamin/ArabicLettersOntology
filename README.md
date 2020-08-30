@@ -6,6 +6,5 @@ The purpose of the Tajweed ontology is to provide a formal and semantic represen
 # Statistics Of Tajweed Ontology
 There is a total of 27 classes in this Ontology. The total individual count is 109.  The total annotations are 39. Our Model is multiLingual. We annotated the classes and individuals in 3 different languages that are English, Arabic, and Urdu. Fig 2. showing the classes, object and data type properties used in creating Tajweed ontology. For visualization of classes and properties webVOWL was used.
 <img src="Classes and Properties.jpg">
-<img src="Images\WebVOWL Visualization.png">
 # System Requirements
 The Tajweed ontology is designed to run on Windows 8/10 as well as a 64-bit machine. The ontology was developed using Protégé software and both reasoners Hermit version 1.4.3.456 and Pellet reasoner were used.
