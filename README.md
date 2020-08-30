@@ -5,7 +5,7 @@ The Holy Quran is the divine words of wisdom by Allah that have been considered 
 The purpose of the Tajweed ontology is to provide a formal and semantic representation that models all the knowledge necessary for the representation of the Arabic letters and their characteristics to study and reason on Quranic text. This semantic representation aims to accomplish the following goals:(1) Determine the rules for each Arabic letter by defining its specific point of articulation. (2) Distinguish the letters coming from the same point of articulation and (3) Determine what is the characteristic of a letter and to which type (strong, medium, weak) it belongs (4) Describe Arabic letters to their particular groups and (5) Reason and infer new knowledge.
 # Statistics Of Tajweed Ontology
 There is a total of 27 classes in this Ontology. The total individual count is 109.  The total annotations are 39. Our Model is multiLingual. We annotated the classes and individuals in 3 different languages that are English, Arabic, and Urdu. Fig 2. showing the classes, object and data type properties used in creating Tajweed ontology. For visualization of classes and properties webVOWL was used.
-<img src="Images\classes (1).png">
+<img src="Classes and Properties.jpg">
 <img src="Images\WebVOWL Visualization.png">
 # System Requirements
 The Tajweed ontology is designed to run on Windows 8/10 as well as a 64-bit machine. The ontology was developed using Protégé software and both reasoners Hermit version 1.4.3.456 and Pellet reasoner were used.
